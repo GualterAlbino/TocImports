@@ -87,9 +87,12 @@ import { User } from "@domain/user";
 import axios from "axios";
 ```
 
-
 ### 🛠️ Tecnologias Utilizadas
 
 - `Recast` - Para manipulação não-destrutiva de AST.
 - `Zod` - Para validação rigorosa do esquema de configuração.
 - `Commander.js` - Para uma interface de CLI robusta.
+
+### Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo LICENSE para detalhes.
