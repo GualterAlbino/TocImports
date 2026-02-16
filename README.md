@@ -62,7 +62,7 @@ toc-imports "src/**/*.ts"
 
 Antes do TocImports:
 
-```json
+```javascript
 import { User } from "@domain/user";
 import axios from "axios";
 import { AuthService } from "@service/auth";
@@ -72,7 +72,7 @@ import { StorageService } from "@service/storage";
 
 Depois do TocImports (Configurado como DESC):
 
-```json
+```javascript
 // Components
 import { Button } from "@components/Button";
 
