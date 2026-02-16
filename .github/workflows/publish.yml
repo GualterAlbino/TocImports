@@ -1,0 +1,30 @@
+name: Publicar no NPM 🚀
+
+on:
+  push:
+    branches:
+      - master 
+
+jobs:
+  build_and_publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Instalar dependências
+        run: npm install
+
+      - name: Rodar o Build
+        run: npm run build
+
+      - name: Publicar no NPM
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

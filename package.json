@@ -4,7 +4,10 @@
   "description": "Organizador de imports por tamanho e grupos customizados.",
   "main": "./dist/organizer.js",
   "bin": {
-    "toc-imports": "./dist/index.js"
+    "toc-imports": "dist/index.js"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "author": "Gualter Albino <gualteralbino1000@gmail.com>",
   "license": "MIT",
