@@ -1,0 +1,45 @@
+{
+  "name": "toc-imports",
+  "version": "1.0.0",
+  "description": "Organizador de imports por tamanho e grupos customizados.",
+  "main": "./dist/organizer.js",
+  "bin": {
+    "toc-imports": "./dist/index.js"
+  },
+  "author": "Gualter Albino <gualteralbino1000@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "typescript",
+    "imports",
+    "organizer",
+    "clean-code",
+    "ast",
+    "recast",
+    "nodejs",
+    "cli"
+  ],
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "start": "ts-node src/index.ts",
+    "prepare": "npm run build"
+  },
+  "dependencies": {
+    "commander": "^11.0.0",
+    "glob": "^10.0.0",
+    "recast": "^0.23.0",
+    "ast-types": "^0.16.0",
+    "zod": "^3.22.0",
+    "@babel/core": "^7.0.0",
+    "@babel/parser": "^7.0.0",
+    "@babel/preset-typescript": "^7.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "ts-node": "^10.0.0"
+  }
+}
