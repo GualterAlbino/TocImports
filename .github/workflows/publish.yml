@@ -2,8 +2,8 @@ name: Publicar no NPM e GitHub Packages 🚀
 
 on:
   push:
-    branches:
-      - master 
+    tags:
+      - '*.*.*' # Escuta tags no formato Semantic Versioning ex: 1.0.0, 1.2.3
 
 jobs:
   build_and_publish:
