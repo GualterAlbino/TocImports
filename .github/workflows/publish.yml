@@ -1,4 +1,4 @@
-name: Publicar no NPM 🚀
+name: Publicar no NPM e GitHub Packages 🚀
 
 on:
   push:
@@ -8,15 +8,20 @@ on:
 jobs:
   build_and_publish:
     runs-on: ubuntu-latest
+    
+    permissions:
+      contents: read
+      packages: write
+
     steps:
       - name: Checkout do código
         uses: actions/checkout@v4
 
+      # Setup e Build
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          registry-url: 'https://registry.npmjs.org'
 
       - name: Instalar dependências (limpas)
         run: npm ci 
@@ -24,7 +29,14 @@ jobs:
       - name: Rodar o Build
         run: npm run build
 
-      - name: Verificar autenticação
+      # Publicar no NPM
+      - name: Configurar Autenticação NPM
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Verificar autenticação no NPM
         run: npm whoami
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -33,3 +45,15 @@ jobs:
         run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      # Publicar no GitHub Packages
+      - name: Configurar Autenticação GitHub Packages
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://npm.pkg.github.com'
+
+      - name: Publicar no GitHub
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
