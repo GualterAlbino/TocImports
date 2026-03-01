@@ -1,5 +1,5 @@
 {
-  "name": "@gualteralbino/toc-imports",
+  "name": "toc-imports",
   "version": "1.0.0",
   "description": "Organizador de imports por tamanho e grupos customizados.",
   "repository": {

@@ -3,12 +3,13 @@ name: Publicar no NPM e GitHub Packages 🚀
 on:
   push:
     tags:
-      - '*.*.*' # Escuta tags no formato Semantic Versioning ex: 1.0.0, 1.2.3
+      - '*.*.*' # Escuta suas tags do GitFlow (ex: 1.0.1)
 
 jobs:
   build_and_publish:
     runs-on: ubuntu-latest
     
+    # Permissão para gravar na aba Packages do GitHub
     permissions:
       contents: read
       packages: write
@@ -23,7 +24,7 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Instalar dependências (limpas)
+      - name: Instalar dependências
         run: npm ci 
 
       - name: Rodar o Build
@@ -36,24 +37,23 @@ jobs:
           node-version: '20'
           registry-url: 'https://registry.npmjs.org'
 
-      - name: Verificar autenticação no NPM
-        run: npm whoami
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Publicar no NPM
+      - name: Publicar no NPM (como toc-imports)
         run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      # Publicar no GitHub Packages
+      # Publicar no GitHub Packages (Adiciona "@gualteralbino" devido a exigência)
+      - name: Adicionar escopo ao nome do pacote
+        run: npm pkg set name="@gualteralbino/toc-imports"
+
       - name: Configurar Autenticação GitHub Packages
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           registry-url: 'https://npm.pkg.github.com'
 
-      - name: Publicar no GitHub
+      - name: Publicar no GitHub Packages
         run: npm publish
         env:
+          # Token nativo do GitHub Actions
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
