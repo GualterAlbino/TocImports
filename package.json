@@ -1,10 +1,10 @@
 {
   "name": "toc-imports",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Organizador de imports por tamanho e grupos customizados.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/GualterAlbino/TocImports.git"
+    "url": "git+https://github.com/GualterAlbino/TocImports.git"
   },
   "main": "./dist/organizer.js",
   "bin": {
