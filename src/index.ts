@@ -58,7 +58,7 @@ function carregarConfiguracao(): TConfig {
 
 program
   .name('toc-imports')
-  .argument('<path>', 'Caminho dos arquivos (ex: "src/**/*.ts")')
+  .argument('<paths...>', 'Caminhos dos arquivos (ex: "src/**/*.ts" ou múltiplos arquivos)')
   .action(async (pPadraoArquivo) => {
     const lConfiguracao = carregarConfiguracao()
 
