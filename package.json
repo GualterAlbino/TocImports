@@ -1,7 +1,7 @@
 {
   "name": "toc-imports",
-  "version": "1.0.1",
-  "description": "Organizador de imports por tamanho e grupos customizados.",
+  "version": "1.1.0",
+  "description": "Biblioteca para organizar os imports do projeto mantendo ele padronizado e organizado de acordo com suas preferências (ou toc de padronização)",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GualterAlbino/TocImports.git"
