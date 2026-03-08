@@ -58,6 +58,24 @@ Rode o comando passando o caminho dos arquivos (aceita padrões Glob):
 toc-imports "src/**/*.ts"
 ```
 
+### 4. Registre o comando na sessão "scripts" de seu package.json
+Rode o comando passando o caminho dos arquivos (aceita padrões Glob):
+
+```json
+{
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format:imports": "toc-imports \"src/**/*.ts\""
+  }
+}
+
+```
+`Dica`: Se você tiver arquivos TypeScript fora da pasta src que também precisam ser organizados (como uma pasta test comum em projetos NestJS), você pode expandir o padrão do glob assim:
+
+```json
+"format:imports": "toc-imports \"{src,test}/**/*.ts\""
+```
+
 ### Exemplo 
 
 Antes do TocImports:
